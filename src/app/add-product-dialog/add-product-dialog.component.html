@@ -1,0 +1,71 @@
+<h1 mat-dialog-title>{{ headerName }}</h1>
+
+<div mat-dialog-content><br/>
+    <form [formGroup]="productForm" enctype="multipart/form-data">
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Product Name</mat-label>
+                <input formControlName="productName" matInput placeholder="Product Name">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field class="formField">
+                <mat-label>Select Brand</mat-label>
+                <mat-select formControlName="brandId">
+                    <mat-option *ngFor="let data of brandList" [value]="data.brandId">
+                        {{data.brandName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field class="formField">
+                <mat-label>Select Category</mat-label>
+                <mat-select formControlName="categoryId">
+                    <mat-option *ngFor="let data of categoryList" value="{{data.categoryId}}">{{data.categoryName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Product Model</mat-label>
+                <input formControlName="productModel" matInput placeholder="Product Model">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Price</mat-label>
+                <input formControlName="productPrice" matInput placeholder="Product Price">
+            </mat-form-field> 
+        </p>
+        
+            <div class="f-w-i mb-1">
+                <mat-form-field appearance="fill" class="f-w formField">
+               
+                    <mat-label>Picture</mat-label>
+                    <button mat-icon-button matPrefix (click)="f_input.click()">
+                      <mat-icon>attach_file</mat-icon>
+                    </button>
+                    <input type="text" readonly matInput formControlName="productPhoto" />
+                    <input
+                      type="file"
+                      multiple
+                      hidden
+                      #f_input
+                      (change)="addImage($event)"
+                    />
+                    <mat-error>this field is required</mat-error>
+                </mat-form-field>
+            </div>        
+        
+    </form>     
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" mat-dialog-close (click)="addProduct()">{{btnName}}</button>
+</div>

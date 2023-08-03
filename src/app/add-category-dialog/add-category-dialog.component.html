@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Add Category</h1>
+
+<div mat-dialog-content><br/>
+    <form [formGroup]="categoryForm">
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Brand Name</mat-label>
+                <input formControlName="categoryName" matInput placeholder="Category Name">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Category Code</mat-label>
+                <input formControlName="categoryCode" matInput placeholder="Category Code">
+            </mat-form-field>
+        </p>
+        
+    </form>     
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" (click)="addCategory()">Add</button>
+</div>

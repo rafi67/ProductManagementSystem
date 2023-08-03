@@ -1,0 +1,88 @@
+<div class="container">
+  <div style="margin-top: 10px;">
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+    </mat-form-field>
+    
+    <div class="mat-elevation-z8 background">
+      
+      <table mat-table [dataSource]="dataSource" matSort>
+    
+        <!-- Full Name Column -->
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
+          <td mat-cell *matCellDef="let row"> {{row.fullName}} </td>
+        </ng-container>
+    
+        <!-- Email Column -->
+        <ng-container matColumnDef="Email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+          <td mat-cell *matCellDef="let row"> {{row.userEmail}} </td>
+        </ng-container>
+    
+        <!-- Photo Column -->
+        <ng-container matColumnDef="Photo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Photo </th>
+          <td mat-cell *matCellDef="let row"> <img class="circle-img" src="{{picPath}}/{{row.userPhoto}}" style="width: 70px;" /> </td>
+        </ng-container>
+    
+        <!-- User Type Column -->
+        <ng-container matColumnDef="User">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> User Type </th>
+          <td mat-cell *matCellDef="let row">
+            <ng-container *ngIf="row.isAdmin">Admin</ng-container>
+            <ng-container *ngIf="row.isDistributor">Distributor</ng-container>
+            <ng-container *ngIf="row.isAreaHead">Aread Head</ng-container>
+          </td>
+        </ng-container>
+
+        <!-- Credential Settings Column -->
+        <ng-container matColumnDef="CredentialSettings">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> User Credential </th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-button *ngIf="!row.isAdmin" (click)="openCredentialDialog(row)"><mat-icon>settings</mat-icon></button> 
+          </td>
+        </ng-container>
+    
+        <!-- User Info edit -->
+
+        <ng-container matColumnDef="UserDetails">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> User Details </th>
+            <td mat-cell *matCellDef="let userData"> 
+                <button *ngIf="!userData.isAdmin" mat-button (click)="openEditDetails(userData)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+            </td> 
+        </ng-container>
+
+        <!-- Delete User -->
+        <ng-container matColumnDef="DeleteUser">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete User </th>
+          <td mat-cell *matCellDef="let row"> 
+            <button mat-button *ngIf="!row.isAdmin" (click)="deleteUser(row.userId)"><mat-icon>delete</mat-icon></button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+      <div>
+        <button mat-mini-fab class="right color" (click)="openAddUser()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  

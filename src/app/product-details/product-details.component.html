@@ -1,0 +1,91 @@
+<div class="container">
+    <div style="margin-top: 10px;">
+      <mat-form-field class="formField">
+        <mat-label><mat-icon class="searchBar">search</mat-icon></mat-label>
+        <input matInput (keyup)="searchProduct($event)" placeholder="Search" #input>
+      </mat-form-field>
+      
+      <p>
+        <button mat-raised-button (click)="downloadPdf()"> PDF </button>
+      </p>
+
+      <div class="mat-elevation-z8 background">
+        
+        <table id="myTable" mat-table [dataSource]="dataSource" matSort>
+
+          <!-- Product Name Column -->
+          <ng-container matColumnDef="ProductName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.productName}} </td>
+          </ng-container>
+      
+          <!-- Product Brand Column -->
+          <ng-container matColumnDef="ProductBrand">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand </th>
+            <td mat-cell *matCellDef="let row"> {{row.productBrand}} </td>
+          </ng-container>
+
+          <!-- Product Category Column -->
+          <ng-container matColumnDef="ProductCategory">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+            <td mat-cell *matCellDef="let row"> {{row.categoryName}} </td>
+          </ng-container>
+
+           <!-- Product Model Column -->
+           <ng-container matColumnDef="ProductModel">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Model </th>
+            <td mat-cell *matCellDef="let row"> {{row.productModel}} </td>
+          </ng-container>
+
+           <!-- Product Price Column -->
+           <ng-container matColumnDef="ProductPrice">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+            <td mat-cell *matCellDef="let row"> {{row.productPrice}} </td>
+          </ng-container>
+      
+          <!-- Photo Column -->
+          <ng-container matColumnDef="ProductPhoto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Photo </th>
+            <td mat-cell *matCellDef="let row"> <img class="img" src="{{imagePath}}/{{row.productPhoto}}" /> </td>
+          </ng-container>
+  
+          <!-- Edit Product Column -->
+          <ng-container matColumnDef="EditProduct">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit Product </th>
+            <td mat-cell *matCellDef="let row">
+                <button *ngIf="user.isAdmin || user.isAreaHead" mat-button (click)="openUpdateProductDialog(row)">
+                    <mat-icon>edit</mat-icon>
+                </button> 
+            </td>
+          </ng-container>
+  
+          <!-- Delete Product -->
+          <ng-container matColumnDef="DeleteProduct">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete Product </th>
+            <td mat-cell *matCellDef="let row"> 
+             <button *ngIf="user.isAdmin || user.isAreaHead" mat-button (click)="deleteProduct(row.productId)"><mat-icon>delete</mat-icon></button> 
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the Search "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  
+        <div>
+          <button *ngIf="user.isAdmin || user.isAreaHead" mat-mini-fab class="right color" (click)="openAddProductDialog()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+    

@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Edit User Details</h1>
+
+<div mat-dialog-content><br/>
+    <form [formGroup]="userDetailsForm" enctype="multipart/form-data">
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input formControlName="fullName" matInput placeholder="UserName">
+            </mat-form-field>
+        </p>
+        
+            <div class="f-w-i mb-1">
+                <img src="{{imgPath}}/Pictures/{{userData.userPhoto}}" class="img" />
+                <mat-form-field appearance="fill" class="f-w">
+               
+                    <mat-label>Picture</mat-label>
+                    <button mat-icon-button matPrefix (click)="f_input.click()">
+                      <mat-icon>attach_file</mat-icon>
+                    </button>
+                    <input type="text" readonly matInput formControlName="photoFile" />
+                    <input
+                      type="file"
+                      multiple
+                      hidden
+                      #f_input
+                      (change)="updateUserImage($event)"
+                    />
+                    <mat-error>this field is required</mat-error>
+                </mat-form-field>
+            </div>
+        
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input formControlName="userEmail" matInput placeholder="UserName">
+            </mat-form-field> 
+        </p>        
+    </form>     
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" (click)="update()" mat-dialog-close>Update</button>
+</div>

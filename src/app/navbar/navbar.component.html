@@ -1,0 +1,36 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [opened]="false">
+      <mat-toolbar color="primary">Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item  [routerLink]="['/DashBoard']"><mat-icon class="icon" >dashboard</mat-icon>Dash Board</a>
+        <a *ngIf="user.isAdmin" mat-list-item [routerLink]="['/User']"><mat-icon class="icon">User</mat-icon>User Details</a>
+        <a *ngIf="user.isAdmin" type="button" mat-list-item  (click)="addBrand()"><mat-icon>grade</mat-icon>Add Brand</a>
+        <a *ngIf="user.isAdmin" type="button" mat-list-item  (click)="addCategory()"><mat-icon>view_list</mat-icon>Add Category</a>
+        <a mat-list-item [routerLink]="['/ProductDetails']"><mat-icon class="icon">assignment</mat-icon> Products</a>
+        <a mat-list-item (click)="openPersonalInfoDialog()"><mat-icon class="icon">edit</mat-icon> Personal Information </a>
+        <a mat-list-item (click)="openCredentialDialog()"><mat-icon class="icon">settings</mat-icon> Change Credential </a>
+        <a *ngIf="!user.isAdmin" mat-list-item (click)="deleteAccount()"><mat-icon class="icon">delete</mat-icon> Delete Account </a>
+        <a mat-list-item (click)="logout()"><mat-icon>logout</mat-icon> Logout</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          class="transparent-button"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span><a mat-list-item  [routerLink]="['/DashBoard']">Dash Board</a></span>
+        <span class="spacer"></span>
+        <img class="circle-img" src="{{picPath}}/{{user.userPhoto}}" style="width: 40px;" />
+      </mat-toolbar>
+      <!-- Add Content Here -->
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Add Brand</h1>
+
+<div mat-dialog-content><br/>
+    <form [formGroup]="brandForm">
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Brand Name</mat-label>
+                <input formControlName="brandName" matInput placeholder="Brand Name">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Brand Code</mat-label>
+                <input formControlName="brandCode" matInput placeholder="Brand Code">
+            </mat-form-field>
+        </p>
+        
+    </form>     
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" (click)="addBrand()">Add</button>
+</div>

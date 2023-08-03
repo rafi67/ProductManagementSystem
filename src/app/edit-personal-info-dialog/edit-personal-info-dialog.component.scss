@@ -1,0 +1,27 @@
+.formField {
+    width: 310px;
+}
+
+.f-w-i{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.mb-1{
+    margin-bottom: 15px;
+}
+
+.img {
+    height: 50px;
+    width: 50px;
+    margin-right: 8px;
+    margin-bottom: 20px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }

@@ -1,0 +1,70 @@
+<h1 mat-dialog-title>Add User</h1>
+
+<div mat-dialog-content><br/>
+    <form [formGroup]="formUser" enctype="multipart/form-data">
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input formControlName="fullName" matInput placeholder="Full Name">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input formControlName="userName" matInput placeholder="UserName">
+            </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field class="formField" appearance="outline">
+              <mat-label>Enter your password</mat-label>
+              <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field> 
+        </p>
+        
+            <div class="f-w-i mb-1">
+                <mat-form-field appearance="fill" class="f-w formField">
+               
+                    <mat-label>Picture</mat-label>
+                    <button mat-icon-button matPrefix (click)="f_input.click()">
+                      <mat-icon>attach_file</mat-icon>
+                    </button>
+                    <input type="text" readonly matInput formControlName="userPhoto" />
+                    <input
+                      type="file"
+                      multiple
+                      hidden
+                      #f_input
+                      (change)="addImage($event)"
+                    />
+                    <mat-error>this field is required</mat-error>
+                </mat-form-field>
+            </div>
+        
+        <p>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input formControlName="userEmail" matInput placeholder="Email">
+            </mat-form-field> 
+        </p>
+        
+        <p>
+            <mat-form-field class="formField">
+                <mat-label>Select User Type</mat-label>
+                <mat-select formControlName="userType">
+                    <mat-option *ngFor="let data of toppingList" value="{{data}}">{{data}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </p>
+        
+    </form>     
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" mat-dialog-close (click)="addUser()">Add</button>
+</div>
