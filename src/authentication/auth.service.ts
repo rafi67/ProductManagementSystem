@@ -21,6 +21,11 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired();
   }
 
+  isAdmin() : boolean {
+    var data = this.jwtHelper.decodeToken();
+    return data.UserType==='Admin';
+  }
+
   logout() : void {
     localStorage.removeItem('access_token');
   }

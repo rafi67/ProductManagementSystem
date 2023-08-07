@@ -9,6 +9,7 @@ import { ProductsService } from 'src/services/products.service';
   templateUrl: './add-product-dialog.component.html',
   styleUrls: ['./add-product-dialog.component.scss']
 })
+
 export class AddProductDialogComponent implements OnInit {
   
   isUpdate: boolean = false;

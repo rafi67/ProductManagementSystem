@@ -5,7 +5,7 @@ import { DashBoardComponent } from './dash-board/dash-board.component';
 import { UserComponent } from './user/user.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { LoginComponent } from './login/login.component';
-import { authGuard, authGuard2 } from 'src/authentication/auth.guard';
+import { authGuard, authGuard2, authGuard3 } from 'src/authentication/auth.guard';
 import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'Login', component: LoginComponent, canActivate: [authGuard2]},
   {path: 'Home', component: AppComponent, canActivate: [authGuard]},
   {path:'DashBoard', component: DashBoardComponent, canActivate: [authGuard]},
-  {path:'User', component: UserComponent, canActivate: [authGuard]},
+  {path:'User', component: UserComponent, canActivate: [authGuard3]},
   {path:'ProductDetails', component: ProductDetailsComponent, canActivate: [authGuard]},
   {path:'NavBar', component: NavbarComponent, canActivate: [authGuard]}
 ];

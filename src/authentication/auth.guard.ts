@@ -19,3 +19,12 @@ import { inject } from '@angular/core';
     
     return true;
   };
+
+  export const authGuard3: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : boolean => {   
+    const authService = inject(AuthService);
+    const router = inject(Router);
+    if(authService.isLogin() && authService.isAdmin()) 
+      return true;
+    
+    return false;
+  };

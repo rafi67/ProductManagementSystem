@@ -41,10 +41,6 @@ export class UsersService {
     return this.http.put<Response>(this.baseUrl+'EditUser', userData);
   }
 
-  deleteImage(id: string) : Observable<User> {
-    return this.http.delete<User>(this.baseUrl+'DeleteUserImg/'+id);
-  }
-
   deleteUser(id: string) : Observable<Response> {
     return this.http.delete<Response>(this.baseUrl+'DeleteUser/'+id);
   }
