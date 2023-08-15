@@ -2280,11 +2280,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Desktop\\dell laptop\\Rafi\\Project\\Asp.net core\\ProductManagementSystem\\ProductManagementSystem\\ProductManagementSystem.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\Desktop\\hp\\Project\\ProductManagementSystem\\ProductManagementSystem\\ProductManagementSystem\\ProductManagementSystem.csproj",
       "projectName": "ProductManagementSystem",
-      "projectPath": "C:\\Users\\hp\\Desktop\\dell laptop\\Rafi\\Project\\Asp.net core\\ProductManagementSystem\\ProductManagementSystem\\ProductManagementSystem.csproj",
+      "projectPath": "C:\\Users\\hp\\Desktop\\hp\\Project\\ProductManagementSystem\\ProductManagementSystem\\ProductManagementSystem\\ProductManagementSystem.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Desktop\\dell laptop\\Rafi\\Project\\Asp.net core\\ProductManagementSystem\\ProductManagementSystem\\obj\\",
+      "outputPath": "C:\\Users\\hp\\Desktop\\hp\\Project\\ProductManagementSystem\\ProductManagementSystem\\ProductManagementSystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

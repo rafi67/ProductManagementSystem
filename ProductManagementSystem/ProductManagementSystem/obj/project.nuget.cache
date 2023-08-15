@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s+wW1UhFFRb+rqxImgll+L3VYca2gq8dpcGgyyPRZhmEnnhCh+10HVLI/nZZYapuLTPgPfW69/5LJI/NPaC5xw==",
+  "dgSpecHash": "GbrOgB4OEWMMMbXOA202Drz35ezXHHIg6wDpNBF06g7h/ie75SVBisJCvDLZTLF75GedXdJ2cy4248yYtxpZWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\Desktop\\dell laptop\\Rafi\\Project\\Asp.net core\\ProductManagementSystem\\ProductManagementSystem\\ProductManagementSystem.csproj",
+  "projectFilePath": "C:\\Users\\hp\\Desktop\\hp\\Project\\ProductManagementSystem\\ProductManagementSystem\\ProductManagementSystem\\ProductManagementSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.16\\microsoft.aspnetcore.authentication.jwtbearer.6.0.16.nupkg.sha512",
