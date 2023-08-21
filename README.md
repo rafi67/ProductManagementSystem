@@ -41,7 +41,7 @@ Change User password and User Name
 
 ## JWT Authentication and Authorization were used
 
-#Database migration with Scaffolding command:
+# Database migration with Scaffolding command:
 
 Scaffold-DbContext "Server=.;Database=ProductMDb;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -Output Models -force
 
