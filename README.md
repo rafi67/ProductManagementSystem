@@ -40,3 +40,9 @@ Change User password and User Name
 ![Screenshot 2023-08-04 221943](https://github.com/rafi67/ProductManagementSystem/assets/45172084/b6e9a215-db84-47d2-9e3e-307419dbe51f)
 
 ## JWT Authentication and Authorization were used
+
+#Database migration with Scaffolding command:
+
+Scaffold-DbContext "Server=.;Database=ProductMDb;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -Output Models -force
+
+Scaffold-DbContext "Server=.;Database=ProductMDb;Trusted_Connection=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
